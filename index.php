@@ -9,7 +9,6 @@ define('SUBSCRIPTION_PLUGIN_FRONTEND_BASE', SUBSCRIPTION_PLUGIN_PATH . "frontend
 define('SUBSCRIPTION_PLUGIN_BACKEND_BASE', SUBSCRIPTION_PLUGIN_PATH . "backend/");
 define('SUBSCRIPTION_PLUGIN_ADMIN_BASE', SUBSCRIPTION_PLUGIN_PATH . "admin/");
 define('ROOTDIR', plugin_dir_path(__FILE__));
-require_once(ROOTDIR . '');
 
 
 /**
@@ -45,11 +44,8 @@ function subscription_add_template($templates) {
 
 // Display a notice if WooCommerce is not active.
 function subscription_missing_woocommerce_notice() {
-    echo SUBSCRIPTION_PLUGIN_ADMIN_BASE.'<div class="error"><p><strong>subscription Plugin</strong> requires <a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a> to be installed and activated.</p></div>';
+    echo '<div class="error"><p><strong>subscription Plugin</strong> requires <a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a> to be installed and activated.</p></div>';
 }
-
-
-
 // Deactivate a plugin using the 'deactivate_plugins' hook
 function deactivate_plugin_using_hook() {
     $plugin_to_deactivate = 'subscription/index.php';
